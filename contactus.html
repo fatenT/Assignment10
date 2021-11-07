@@ -4,21 +4,55 @@
 	<meta charset="utf-8">
 	<title>Welcome to Vecta Corp.</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
 	<link rel="stylesheet" href="css/base.css">
+	
 	<link rel="stylesheet" href="css/skeleton.css">
 	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 	<script src="js/jquery.mobilemenu.js"></script>
+
 	<script>
 		$(document).ready(function(){
 			$('#responsive-menu').mobileMenu();
+
+			$( "input:radio, input:checkbox" ).checkboxradio();
+
+			$( "select:last-of-type" ).selectmenu();
+
+			$( "select:first-of-type" )
+			.selectmenu()
+			.selectmenu( "menuWidget" )
+			.addClass( "overflow" );
+
+			$( "input[type='submit']").button();
+
 		});
 	</script>
+
+	<style>
+		form select {
+			display: inline-block;
+		}
+
+		fieldset {
+			border: 0;
+		}
+		label {
+			display: block;
+			margin: 30px 0 0 0;
+		}
+		.overflow {
+			height: 200px;
+		}
+	</style>
 </head>
 <body>
 	<main class="container">
@@ -28,11 +62,11 @@
 		
 		<nav class="thirteen columns">
 			<ul id="responsive-menu">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="aboutus.html">About Us</a></li>
-				<li><a href="solutions.html">Solutions</a></li>
-				<li><a href="support.html">Support</a></li>
-				<li><a href="contactus.html">Contact Us</a></li>
+				<li><a href="index.html" title="Welcome to Vecta Corp. website">Home</a></li>
+				<li><a href="aboutus.html" title="About Vecta Corp. services and history">About Us</a></li>
+				<li><a href="solutions.html" title="Vecta Corp. offers 3 solutions for prospecting, converting, and retaining customers">Solutions</a></li>
+				<li><a href="support.html" title="Find out how to support Vecta Corp.">Support</a></li>
+				<li><a href="contactus.html" title="Contact a Vecta Corp sales representative">Contact Us</a></li>
 			</ul>
 		</nav>
 		
@@ -55,20 +89,19 @@
 			    Email:
 				<input type="email" name="email" maxlength="30" required="">
 			   
-                What VectaCorp products are you interested in?<br>
+                <label for=""> VectaCorp products are you interested in?</label>
 			    <label for="vProspect"><input type="checkbox" name="product" value="vProspect" id="vProspect">vProspect 2.0</label>
 			    <label for="vConvert"><input type="checkbox" name="product" value="vConvert" id="vConvert">vConvert 2.0</label>
 			    <label for="vRetain"><input type="checkbox" name="product" value="vRetain" id="vRetain">vRetain 1.0</label>
 			    
-			    <br>
-			    What is your current infrastructure?<br>
+			    <label for="infrastructure">What is your current infrastructure?</label>
 			    <label for="Mac"><input type="radio" name="infrastructure" value="Mac" id="Mac">Mac</label>
 			    <label for="Linux"><input type="radio" name="infrastructure" value="Linux" id="Linux">Linux</label>
 			    <label for="Unix"><input type="radio" name="infrastructure" value="Unix" id="Unix">Unix</label>
 			    <label for="Windows"><input type="radio" name="infrastructure" value="Windows" id="Windows">Windows</label>
 
-			    <br>
-			    How many employees do you have?
+			   
+			    <label for="companysize">How many employees do you have?</label>
 			    <select name="companysize">
                     <option value="1-10">1-10</option>
                     <option value="11-100">11-100</option>
@@ -76,7 +109,7 @@
                     <option value="More than 1000">More than 1000</option>
 		        </select>
                 
-			    How did you hear about us?
+			    <label for="hearaboutus">How did you hear about us?</label> 
 			    <select name="hearaboutus" multiple="" size="5">
                     <option value="Magazine Ad">Magazine Ad</option>
                     <option value="Radio Ad">Radio Ad</option>
@@ -85,9 +118,10 @@
                     <option value="Other">Other</option>
 		        </select>
                 
-			    Questions or comments for our sales representatives?
+			    <label for="questions">Questions or comments for our sales representatives?</label>
 			    <textarea name="questions" size="30" rows="5"></textarea>
-			    <input type="submit" name="submit" value="Submit Now">
+			    <input type="submit" name="submit" value="Submit Now" class="ui-button ui-widget ui-corner-all">
+
 		    	</fieldset>
 			</form>
 	    </section>
